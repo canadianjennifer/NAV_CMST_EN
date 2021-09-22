@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Change Management Scoping Tool Results</title>
+<style>
+.signature, .title { 
+float:left;
+  border-top: 1px solid #000;
+  width: 200px; 
+  text-align: center;
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+</style>
+<script type="text/javascript">
+
+	function getAllUrlParams(url) {
+  // get query string from url (optional) or window
+  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+  // we'll store the parameters here
+  var obj = {};
+  // if query string exists
+  if (queryString) {
+    // stuff after # is not part of query string, so get rid of it
+    queryString = queryString.split('#')[0];
+    // split our query string into its component parts
+    var arr = queryString.split('&');
+    for (var i = 0; i < arr.length; i++) {
+      // separate the keys and the values
+      var a = arr[i].split('=');
+      // set parameter name and value (use 'true' if empty)
+      var paramName = a[0];
+      var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+      // (optional) keep case consistent
+      // paramName = paramName.toLowerCase();
+      //if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+      // if the paramName ends with square brackets, e.g. colors[] or colors[2]
+      if (paramName.match(/\[(\d+)?\]$/)) {
+        // create key if it doesn't exist
+        var key = paramName.replace(/\[(\d+)?\]/, '');
+        if (!obj[key]) obj[key] = [];
+        // if it's an indexed array e.g. colors[2]
+        if (paramName.match(/\[\d+\]$/)) {
+          // get the index value and add the entry at the appropriate position
+          var index = /\[(\d+)\]/.exec(paramName)[1];
+          obj[key][index] = paramValue;
+        } else {
+          // otherwise add the value to the end of the array
+          obj[key].push(paramValue);
+        }
+      } else {
+        // we're dealing with a string
+        if (!obj[paramName]) {
+          // if it doesn't exist, create property
+          obj[paramName] = paramValue;
+        } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+          // if property does exist and it's a string, convert it to an array
+          obj[paramName] = [obj[paramName]];
+          obj[paramName].push(paramValue);
+        } else {
+          // otherwise add the property
+          obj[paramName].push(paramValue);
+        }
+      }
+    }
+  }
+
+  return obj;
+}
+//define variables
+var userName = getAllUrlParams().uname;
+var projectName = getAllUrlParams().pname;
+var position = getAllUrlParams().pos;
+var Q1Full = getAllUrlParams().q1;
+var Q2Full = getAllUrlParams().q2;
+var Q3Full = getAllUrlParams().q3;
+var Q4Full = getAllUrlParams().q4;
+var Q5Full = getAllUrlParams().q5;
+var Q6Full = getAllUrlParams().q6;
+var Q7Full = getAllUrlParams().q7;
+var Q8Full = getAllUrlParams().q8;
+var Q9Full = getAllUrlParams().q9;
+var Q10Full = getAllUrlParams().q10;
+
+
+var posFile = position + '.jpg';
+
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+
+</script>
+</head>
+
+<body>
+
+<div style="text-align:left;padding-top: 15px;"><img src="Nav_Canada.svg" width="100px"></div>	
+
+
+<h1>Change Management Needs Assessment Results</h1>
+<b>Name: </b><script type="text/javascript">document.write(unescape(userName))</script><br>
+<b>Project Name: </b><script type="text/javascript">document.write(unescape(projectName))</script><br>
+<b>Date: </b><script type="text/javascript">document.write(unescape(today))</script><br>
+<h2>Step 1: What is the scope of the project?</h2>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tr>
+<th width="75%" style="padding:5px">Question</th>
+<th width="25%" style="padding:5px">Scope Level (1-4)</td>
+</tr>
+
+<tbody>
+<tr>
+<td style="padding:5px">
+<b>1. Areas impacted by the change:</b><br>
+How many parts of the organization will be primarily affected by this change?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q1Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>2. Number of employees impacted by the change:</b><br>
+How many employees will be primarily impacted by this change?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q2Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>3. Impact on business processes:</b><br>
+Will this result in changes to business processes?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q3Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>4. Impact on roles and responsibilities:</b><br>
+Will this involve changes to peoples’ roles or responsibilities (who does what) or reporting relationships?  
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q4Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>5. Impact on technology and tools:</b><br>
+Will there be changes to technology (e.g., systems) or tools used (e.g., forms, checklists)?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q5Full))</script>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<p style="page-break-before: always">
+
+<h2>Step 2: What are some of the change related risks associated with this project?</h2>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tr>
+<th width="75%" style="padding:5px">Question</th>
+<th width="25%" style="padding:5px">Risk Level (1-4)</td>
+</tr>
+<tbody>
+<tr>
+<td style="padding:5px">
+<b>1. Case for Change</b><br>
+Are the project objectives clearly defined?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q6Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>2. Shared Vision</b><br>
+Do those leading the project share a common vision for the future state?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q7Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>3. Change Capacity</b><br>
+What is the capacity of those most impacted by the project to absorb this change?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q8Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>4. Change Leadership</b><br>
+Are Senior Leaders ready, willing and able to undertake the required change leadership/sponsorship role and advocate for the change?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q9Full))</script>
+</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<b>5. Extent of Required Change in Mindset or Ways of Doing Business</b><br>
+Will people be required to do things in a significantly different way?
+</td>
+<td style="padding:5px"><script type="text/javascript">document.write(unescape(Q10Full))</script>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Overall Result and Recommendations</h2>
+<p>Based on the answers provided, the project has: <b>Minimal Change Needs</b>.</p>
+<p>No further action is required at this time. You may wish to revisit this assessment at a later date, as details of the project and the related change evolve, to determine if there is any corresponding impact on the results of the Change Management assessment.</p>
+<p></p>
+<button type="button" onclick="window.print();return false;">Print Results</button>
+
+
+</body>
+</html>
