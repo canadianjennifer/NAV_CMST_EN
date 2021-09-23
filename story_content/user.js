@@ -2,22 +2,68 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6ldGC2ji19c":
+      case "6LjfdjMvGmq":
         Script1();
         break;
-      case "6JEQ2AlLRsU":
+      case "5b7wPdnSqG5":
         Script2();
         break;
-      case "5ZvBpHoTWKR":
+      case "5o7DWetLdZ5":
         Script3();
         break;
-      case "6nLM6DX3N3X":
+      case "5apB3VIntg3":
         Script4();
+        break;
+      case "5pEfmZUGepH":
+        Script5();
         break;
   }
 }
 
 function Script1()
+{
+  var player = GetPlayer();
+
+var userName = player.GetVar('userName');
+var projectName = player.GetVar('projectName');
+var Q1 = player.GetVar('Q1');
+var Q2 = player.GetVar('Q2');
+var Q3 = player.GetVar('Q3');
+var Q4 = player.GetVar('Q4');
+var Q5 = player.GetVar('Q5');
+var Part1Total = player.GetVar('Part1Total');
+var Q6 = player.GetVar('Q6');
+var Q7 = player.GetVar('Q7');
+var Q8 = player.GetVar('Q8');
+var Q9 = player.GetVar('Q9');
+var Q10 = player.GetVar('Q10');
+var Part2Total = player.GetVar('Part2Total');
+var OverallChangeRequired = player.GetVar('OverallChangeRequired');
+
+var formData = new FormData();
+formData.append('userName', userName);
+formData.append('projectName', projectName);
+formData.append('Q1', Q1);
+formData.append('Q2', Q2);
+formData.append('Q3', Q3);
+formData.append('Q4', Q4);
+formData.append('Q5', Q5);
+formData.append('Part1Total', Part1Total);
+formData.append('Q6', Q6);
+formData.append('Q7', Q7);
+formData.append('Q8', Q8);
+formData.append('Q9', Q9);
+formData.append('Q10', Q10);
+formData.append('Part2Total', Part2Total);
+formData.append('OverallChangeRequired', OverallChangeRequired);
+
+
+var request = new XMLHttpRequest();
+request.open('POST', 'https://script.google.com/macros/s/AKfycbxW59x9jqF7ZxRuOAMahiXBPTOwI1NnBFENemM8hZssQ41p-pRxmu8GfZhWEBYAU2ZS2w/exec');
+request.send(formData);
+}
+
+function Script2()
 {
   var player = GetPlayer();
 
@@ -52,7 +98,7 @@ var urlstring = ("story_content/external_files/minimal.html?uname=" + uname + "&
 window.open(urlstring,"minimal.html");
 }
 
-function Script2()
+function Script3()
 {
   var player = GetPlayer();
 
@@ -87,7 +133,7 @@ var urlstring = ("story_content/external_files/level1.html?uname=" + uname + "&p
 window.open(urlstring,"level1.html");
 }
 
-function Script3()
+function Script4()
 {
   var player = GetPlayer();
 
@@ -122,7 +168,7 @@ var urlstring = ("story_content/external_files/level2.html?uname=" + uname + "&p
 window.open(urlstring,"level2.html");
 }
 
-function Script4()
+function Script5()
 {
   var player = GetPlayer();
 
