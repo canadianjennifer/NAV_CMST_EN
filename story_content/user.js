@@ -2,19 +2,19 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5yThaXuNuFU":
+      case "6lw53H6QxzV":
         Script1();
         break;
-      case "5xfqucT4YML":
+      case "6rbpM6Unk5K":
         Script2();
         break;
-      case "6eNT87jVbyZ":
+      case "5jLlnRICkBr":
         Script3();
         break;
-      case "6ZNDsAO6LS9":
+      case "6oUMOBpvset":
         Script4();
         break;
-      case "6jSWZA2dcQG":
+      case "5xgInxpqA3K":
         Script5();
         break;
   }
@@ -26,6 +26,7 @@ function Script1()
 
 var userName = player.GetVar('userName');
 var projectName = player.GetVar('projectName');
+var Language = player.GetVar('Language');
 var Q1 = player.GetVar('Q1');
 var Q2 = player.GetVar('Q2');
 var Q3 = player.GetVar('Q3');
@@ -43,6 +44,7 @@ var OverallChangeRequired = player.GetVar('OverallChangeRequired');
 var formData = new FormData();
 formData.append('userName', userName);
 formData.append('projectName', projectName);
+formData.append('Language', Language);
 formData.append('Q1', Q1);
 formData.append('Q2', Q2);
 formData.append('Q3', Q3);
